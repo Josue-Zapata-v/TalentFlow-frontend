@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Manrope } from "next/font/google";
+import { AuthHydrator } from "@/modules/auth/components/AuthHydrator";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${manrope.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased`}>
+        <AuthHydrator />
         {children}
       </body>
     </html>
