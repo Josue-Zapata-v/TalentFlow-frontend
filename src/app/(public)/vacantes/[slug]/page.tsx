@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { formatDate } from "@/lib/utils";
+import { PostularButton } from "@/modules/postulaciones/components/PostularButton";
 import { ModalidadBadge } from "@/modules/vacantes/components/ModalidadBadge";
 import { getPublicVacanteBySlug } from "@/modules/vacantes/services/vacantesService";
 
@@ -69,9 +68,7 @@ export default async function VacanteDetailPage({ params }: VacanteDetailPagePro
         </section>
 
         <div className="mt-8">
-          <Link href="/login">
-            <Button>Postularme a esta vacante</Button>
-          </Link>
+          <PostularButton vacanteId={vacante.id} />
         </div>
       </article>
     </main>
