@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-manrope);
+  --font-mono: var(--font-ibm-plex-mono);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: calc(var(--radius-lg) * 1.4);
+  --radius-2xl: calc(var(--radius-lg) * 1.8);
+
+  /* Marca: CTA secundario / progreso positivo. Distinto del --color-accent
+     de shadcn (hover neutro de menús/dropdowns) — evita colisión semántica. */
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-hover: var(--brand-accent-hover);
+  --color-text-muted: var(--text-muted);
+
+  /* Estados de postulación (línea de tiempo, badges del Kanban) */
+  --color-estado-postulado: var(--estado-postulado);
+  --color-estado-revision: var(--estado-revision);
+  --color-estado-entrevista: var(--estado-entrevista);
+  --color-estado-oferta: var(--estado-oferta);
+  --color-estado-contratado: var(--estado-contratado);
+  --color-estado-rechazado: var(--estado-rechazado);
+}
+
+:root {
+  /* Base */
+  --background: #ffffff;
+  --foreground: #1a1d23;
+  --card: #f7f8fa;
+  --card-foreground: #1a1d23;
+  --popover: #ffffff;
+  --popover-foreground: #1a1d23;
+
+  /* Marca / acción */
+  --primary: #1b3a6b;
+  --primary-foreground: #ffffff;
+  --brand-accent: #0e7c66;
+  --brand-accent-hover: #0b6353;
+
+  --secondary: #f7f8fa;
+  --secondary-foreground: #1a1d23;
+  --muted: #f7f8fa;
+  --muted-foreground: #5b6470;
+  --text-muted: #5b6470;
+  --accent: #f7f8fa;
+  --accent-foreground: #1a1d23;
+
+  /* Estados semánticos */
+  --destructive: #c0362c;
+  --border: #e3e6ea;
+  --input: #e3e6ea;
+  --ring: #1b3a6b;
+
+  /* Estados de postulación */
+  --estado-postulado: #64748b;
+  --estado-revision: #b7791f;
+  --estado-entrevista: #6d28d9;
+  --estado-oferta: #0e7c66;
+  --estado-contratado: #1f7a4d;
+  --estado-rechazado: #c0362c;
+
+  --radius: 0.625rem;
+  --sidebar: #f7f8fa;
+  --sidebar-foreground: #1a1d23;
+  --sidebar-primary: #1b3a6b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef0f3;
+  --sidebar-accent-foreground: #1a1d23;
+  --sidebar-border: #e3e6ea;
+  --sidebar-ring: #1b3a6b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading;
+  }
+}
