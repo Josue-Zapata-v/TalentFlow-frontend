@@ -4,6 +4,10 @@ Frontend del sistema de reclutamiento (ATS) TalentFlow, proyecto académico del 
 
 Consume el [backend](https://github.com/Josue-Zapata-v/TalentFlow-backend) vía `fetch` nativo. Ver `CLAUDE.md` para el contexto completo de arquitectura y diseño.
 
+**URL pública (producción):** https://talent-flow-frontend-zeta.vercel.app
+
+> Credenciales de prueba (mismo seed del backend): `admin@talentflow.com` / `reclutador@talentflow.com` / `postulante@talentflow.com`, password `Talentflow123!` para los tres.
+
 ## Stack
 
 - Next.js 15 (App Router), TypeScript
@@ -31,6 +35,7 @@ Completa `.env.local` con la URL del backend (ver variables de entorno).
 | Variable | Descripción |
 |---|---|
 | `NEXT_PUBLIC_API_URL` | URL base del backend (ej. `http://localhost:4000/api` en desarrollo) |
+| `NEXT_PUBLIC_SITE_URL` | URL pública de este frontend, usada por `sitemap.ts` y `robots.ts` |
 
 ## Correr en local
 
@@ -49,4 +54,4 @@ npm start
 
 ## Despliegue
 
-Vercel, conectado al repo `TalentFlow-frontend`. Variable de entorno `NEXT_PUBLIC_API_URL` apuntando al backend en Render.
+Vercel, conectado al repo `TalentFlow-frontend`, desplegado en https://talent-flow-frontend-zeta.vercel.app. Variables de entorno `NEXT_PUBLIC_API_URL` (apuntando al backend en Render) y `NEXT_PUBLIC_SITE_URL` (la propia URL de Vercel). El backend tiene `CORS_ORIGIN` configurado con esta misma URL de Vercel.
