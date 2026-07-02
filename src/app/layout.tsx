@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Manrope } from "next/font/google";
 import { AuthHydrator } from "@/modules/auth/components/AuthHydrator";
+import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import "./globals.css";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         <AuthHydrator />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

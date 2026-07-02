@@ -1,7 +1,10 @@
 "use client";
 
+import { Briefcase } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
+import { LoadingState } from "@/components/ui/loading-state";
 import { formatDate } from "@/lib/utils";
 import { useRequireRole } from "@/modules/auth/hooks/useRequireRole";
 import { EstadoVacanteBadge } from "@/modules/vacantes/components/EstadoVacanteBadge";
@@ -40,7 +43,7 @@ export default function ReclutadorPage() {
         </Link>
       </div>
 
-      {isLoading && <p className="mt-12 text-center text-muted-foreground">Cargando...</p>}
+      {isLoading && <LoadingState />}
 
       {error && (
         <p role="alert" className="mt-12 text-center text-destructive">
@@ -49,7 +52,11 @@ export default function ReclutadorPage() {
       )}
 
       {!isLoading && !error && vacantes.length === 0 && (
-        <p className="mt-12 text-center text-muted-foreground">Aún no has creado ninguna vacante.</p>
+        <EmptyState
+          icon={Briefcase}
+          title="Aún no has creado ninguna vacante"
+          description="Crea tu primera vacante para empezar a recibir postulaciones."
+        />
       )}
 
       {!isLoading && !error && vacantes.length > 0 && (

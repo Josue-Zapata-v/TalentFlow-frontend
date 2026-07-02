@@ -1,3 +1,4 @@
+import { CalendarDays, MapPin, Tag, Wallet } from "lucide-react";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
 import { Vacante } from "@/types/shared";
@@ -16,16 +17,28 @@ export function VacanteCard({ vacante }: { vacante: Vacante }) {
         <ModalidadBadge modalidad={vacante.modalidad} />
       </div>
 
-      <p className="text-sm text-muted-foreground">{vacante.ubicacion}</p>
+      <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+        <MapPin className="size-4 shrink-0" aria-hidden />
+        {vacante.ubicacion}
+      </p>
 
       {vacante.categoria && (
-        <p className="text-sm text-muted-foreground">{vacante.categoria}</p>
+        <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+          <Tag className="size-4 shrink-0" aria-hidden />
+          {vacante.categoria}
+        </p>
       )}
 
       <div className="mt-auto flex items-center justify-between pt-2">
-        <span className="font-mono text-xs text-muted-foreground">{formatDate(vacante.createdAt)}</span>
+        <span className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+          <CalendarDays className="size-3.5 shrink-0" aria-hidden />
+          {formatDate(vacante.createdAt)}
+        </span>
         {vacante.salarioRango && (
-          <span className="font-mono text-xs font-medium text-foreground">{vacante.salarioRango}</span>
+          <span className="flex items-center gap-1.5 font-mono text-xs font-medium text-foreground">
+            <Wallet className="size-3.5 shrink-0" aria-hidden />
+            {vacante.salarioRango}
+          </span>
         )}
       </div>
     </Link>

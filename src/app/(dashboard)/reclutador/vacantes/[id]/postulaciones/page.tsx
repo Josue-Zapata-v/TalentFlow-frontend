@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { LoadingState } from "@/components/ui/loading-state";
 import { useRequireRole } from "@/modules/auth/hooks/useRequireRole";
 import { KanbanBoard } from "@/modules/postulaciones/components/KanbanBoard";
 import { usePostulacionesByVacante } from "@/modules/postulaciones/hooks/usePostulacionesByVacante";
@@ -21,7 +22,7 @@ export default function PostulacionesVacantePage() {
         Cambia el estado de cada postulante seleccionando la nueva etapa.
       </p>
 
-      {isLoading && <p className="mt-12 text-center text-muted-foreground">Cargando...</p>}
+      {isLoading && <LoadingState />}
 
       {error && (
         <p role="alert" className="mt-12 text-center text-destructive">

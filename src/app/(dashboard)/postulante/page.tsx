@@ -1,6 +1,9 @@
 "use client";
 
+import { Inbox } from "lucide-react";
 import Link from "next/link";
+import { EmptyState } from "@/components/ui/empty-state";
+import { LoadingState } from "@/components/ui/loading-state";
 import { useRequireRole } from "@/modules/auth/hooks/useRequireRole";
 import { PostulacionCard } from "@/modules/postulaciones/components/PostulacionCard";
 import { useMisPostulaciones } from "@/modules/postulaciones/hooks/useMisPostulaciones";
@@ -20,7 +23,7 @@ export default function PostulantePage() {
         Sigue el estado de tus postulaciones a las vacantes de TalentFlow.
       </p>
 
-      {isLoading && <p className="mt-12 text-center text-muted-foreground">Cargando...</p>}
+      {isLoading && <LoadingState />}
 
       {error && (
         <p role="alert" className="mt-12 text-center text-destructive">
@@ -29,13 +32,18 @@ export default function PostulantePage() {
       )}
 
       {!isLoading && !error && postulaciones.length === 0 && (
-        <p className="mt-12 text-center text-muted-foreground">
-          Aún no tienes postulaciones.{" "}
-          <Link href="/vacantes" className="font-medium text-primary hover:underline">
-            Explora las vacantes disponibles
-          </Link>
-          .
-        </p>
+        <EmptyState
+          icon={Inbox}
+          title="Aún no tienes postulaciones"
+          description={
+            <>
+              <Link href="/vacantes" className="font-medium text-primary hover:underline">
+                Explora las vacantes disponibles
+              </Link>{" "}
+              y postúlate a la que más te interese.
+            </>
+          }
+        />
       )}
 
       {!isLoading && !error && postulaciones.length > 0 && (

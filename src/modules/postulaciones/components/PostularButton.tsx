@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { ApiError } from "@/lib/api-client";
 import { useAuth } from "@/modules/auth/hooks/useAuth";
 import { postulacionesService } from "../services/postulacionesService";
@@ -66,6 +67,7 @@ export function PostularButton({ vacanteId }: { vacanteId: string }) {
   return (
     <div className="flex flex-col gap-2">
       <Button onClick={handleClick} disabled={status === "submitting"}>
+        {status === "submitting" && <Spinner className="size-4 text-current" />}
         {status === "submitting" ? "Enviando..." : "Postularme a esta vacante"}
       </Button>
       {status === "error" && errorMessage && (

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Spinner } from "@/components/ui/spinner";
 import { useLogin } from "@/modules/auth/hooks/useLogin";
 
 export default function LoginPage() {
@@ -52,6 +53,7 @@ export default function LoginPage() {
         )}
 
         <Button type="submit" disabled={isSubmitting} className="mt-2">
+          {isSubmitting && <Spinner className="size-4 text-current" />}
           {isSubmitting ? "Ingresando..." : "Ingresar"}
         </Button>
       </form>

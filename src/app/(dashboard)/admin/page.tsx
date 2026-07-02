@@ -1,7 +1,10 @@
 "use client";
 
+import { UsersRound } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { EmptyState } from "@/components/ui/empty-state";
+import { LoadingState } from "@/components/ui/loading-state";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { formatDate } from "@/lib/utils";
 import { useAuth } from "@/modules/auth/hooks/useAuth";
@@ -63,7 +66,7 @@ export default function AdminPage() {
         </Select>
       </div>
 
-      {isLoading && <p className="mt-12 text-center text-muted-foreground">Cargando...</p>}
+      {isLoading && <LoadingState />}
 
       {error && (
         <p role="alert" className="mt-12 text-center text-destructive">
@@ -131,7 +134,7 @@ export default function AdminPage() {
           </table>
 
           {users.length === 0 && (
-            <p className="py-12 text-center text-muted-foreground">No hay usuarios con ese filtro.</p>
+            <EmptyState icon={UsersRound} title="No hay usuarios con ese filtro" />
           )}
         </div>
       )}

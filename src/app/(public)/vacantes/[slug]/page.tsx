@@ -1,3 +1,4 @@
+import { CalendarDays, MapPin, Wallet } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
@@ -46,13 +47,20 @@ export default async function VacanteDetailPage({ params }: VacanteDetailPagePro
             <h1 className="font-heading text-3xl font-bold text-foreground">{vacante.titulo}</h1>
             <ModalidadBadge modalidad={vacante.modalidad} />
           </div>
-          <p className="text-base text-muted-foreground">{vacante.ubicacion}</p>
+          <p className="flex items-center gap-1.5 text-base text-muted-foreground">
+            <MapPin className="size-4 shrink-0" aria-hidden />
+            {vacante.ubicacion}
+          </p>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs text-muted-foreground">
+            <span className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
+              <CalendarDays className="size-3.5 shrink-0" aria-hidden />
               Publicada el {formatDate(vacante.createdAt)}
             </span>
             {vacante.salarioRango && (
-              <span className="font-mono text-xs font-medium text-foreground">{vacante.salarioRango}</span>
+              <span className="flex items-center gap-1.5 font-mono text-xs font-medium text-foreground">
+                <Wallet className="size-3.5 shrink-0" aria-hidden />
+                {vacante.salarioRango}
+              </span>
             )}
           </div>
         </header>

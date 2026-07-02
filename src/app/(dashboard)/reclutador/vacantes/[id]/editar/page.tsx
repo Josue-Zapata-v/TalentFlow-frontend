@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { LoadingState } from "@/components/ui/loading-state";
 import { ApiError } from "@/lib/api-client";
 import { useRequireRole } from "@/modules/auth/hooks/useRequireRole";
 import { VacanteForm } from "@/modules/vacantes/components/VacanteForm";
@@ -59,7 +60,7 @@ export default function EditarVacantePage() {
         </p>
       )}
 
-      {!error && !defaultValues && <p className="mt-8 text-muted-foreground">Cargando...</p>}
+      {!error && !defaultValues && <LoadingState />}
 
       {defaultValues && (
         <div className="mt-8">

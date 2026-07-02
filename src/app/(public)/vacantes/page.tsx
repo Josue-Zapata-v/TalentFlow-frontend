@@ -1,6 +1,8 @@
+import { SearchX } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
+import { EmptyState } from "@/components/ui/empty-state";
 import { getPublicVacantes } from "@/modules/vacantes/services/vacantesService";
 import { VacanteCard } from "@/modules/vacantes/components/VacanteCard";
 import { VacanteFilterBar } from "@/modules/vacantes/components/VacanteFilterBar";
@@ -56,9 +58,11 @@ export default async function VacantesPage({ searchParams }: VacantesPageProps) 
       </div>
 
       {vacantes.length === 0 ? (
-        <p className="mt-12 text-center text-muted-foreground">
-          No se encontraron vacantes con esos filtros. Intenta ajustar la búsqueda.
-        </p>
+        <EmptyState
+          icon={SearchX}
+          title="No se encontraron vacantes con esos filtros"
+          description="Intenta ajustar la búsqueda o quitar algún filtro."
+        />
       ) : (
         <section
           aria-label="Listado de vacantes"
