@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { BackLink } from "@/components/ui/back-link";
 import { LoadingState } from "@/components/ui/loading-state";
 import { useRequireRole } from "@/modules/auth/hooks/useRequireRole";
 import { KanbanBoard } from "@/modules/postulaciones/components/KanbanBoard";
@@ -17,7 +18,8 @@ export default function PostulacionesVacantePage() {
 
   return (
     <main className="mx-auto max-w-(--breakpoint-xl) px-6 py-12">
-      <h1 className="font-heading text-3xl font-bold text-foreground">Postulaciones</h1>
+      <BackLink href="/reclutador" label="Volver a mis vacantes" />
+      <h1 className="mt-4 font-heading text-3xl font-bold text-foreground">Postulaciones</h1>
       <p className="mt-2 text-base text-muted-foreground">
         Cambia el estado de cada postulante seleccionando la nueva etapa.
       </p>

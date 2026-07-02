@@ -1,6 +1,7 @@
 import { CalendarDays, MapPin, Wallet } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { BackLink } from "@/components/ui/back-link";
 import { formatDate } from "@/lib/utils";
 import { PostularButton } from "@/modules/postulaciones/components/PostularButton";
 import { ModalidadBadge } from "@/modules/vacantes/components/ModalidadBadge";
@@ -41,7 +42,8 @@ export default async function VacanteDetailPage({ params }: VacanteDetailPagePro
 
   return (
     <main className="mx-auto max-w-(--breakpoint-md) px-6 py-12">
-      <article>
+      <BackLink href="/vacantes" label="Volver a vacantes" />
+      <article className="mt-4">
         <header className="flex flex-col gap-3 border-b border-border pb-6">
           <div className="flex items-start justify-between gap-4">
             <h1 className="font-heading text-3xl font-bold text-foreground">{vacante.titulo}</h1>

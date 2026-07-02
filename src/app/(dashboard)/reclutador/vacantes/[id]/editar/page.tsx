@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { BackLink } from "@/components/ui/back-link";
 import { LoadingState } from "@/components/ui/loading-state";
 import { ApiError } from "@/lib/api-client";
 import { useRequireRole } from "@/modules/auth/hooks/useRequireRole";
@@ -52,7 +53,8 @@ export default function EditarVacantePage() {
 
   return (
     <main className="mx-auto max-w-(--breakpoint-md) px-6 py-12">
-      <h1 className="font-heading text-3xl font-bold text-foreground">Editar vacante</h1>
+      <BackLink href="/reclutador" label="Volver a mis vacantes" />
+      <h1 className="mt-4 font-heading text-3xl font-bold text-foreground">Editar vacante</h1>
 
       {error && (
         <p role="alert" className="mt-8 text-destructive">
