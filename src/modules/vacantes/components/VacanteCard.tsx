@@ -10,9 +10,9 @@ export function VacanteCard({ vacante }: { vacante: Vacante }) {
       className="group flex flex-col gap-3 rounded-md border border-border bg-card p-5 shadow-sm transition-all hover:border-primary hover:shadow-md"
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-primary">
+        <h2 className="font-heading text-lg font-bold text-foreground group-hover:text-primary">
           {vacante.titulo}
-        </h3>
+        </h2>
         <ModalidadBadge modalidad={vacante.modalidad} />
       </div>
 
